@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Machine à café</title>
+  </head>
+  <body>
+    <script>
+      let order = "";
+      let isConfirmed = false;
+
+      while (isConfirmed === false) {
+        order = prompt("Thé ou Café ?");
+
+        order += confirm("sucré ?") ? ", sucré" : ", non sucré";
+        // += signifie order = order + "sucré"
+
+        if (confirm("lait ?")) {
+          // si oui du lait
+          if (confirm("végétal ?")) {
+            order += ", lait végétal";
+          } else {
+            order += ", lait de vache";
+          }
+        }
+        // confirm("Récapitulatif de votre commande :"+ order)
+        isConfirmed = confirm(`Récapitulatif de votre commande : ${order}`);
+        // isConfirmed = true ou false
+      }
+
+      alert(`Commande en cours : ${order}`);
+    </script>
+  </body>
+</html>
